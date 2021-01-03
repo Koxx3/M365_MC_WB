@@ -59,7 +59,7 @@
 #define PWM_FREQ_SCALING 1
 
 #define LOW_SIDE_SIGNALS_ENABLING        LS_PWM_TIMER
-#define SW_DEADTIME_NS                   800 /*!< Dead-time to be inserted
+#define SW_DEADTIME_NS                   500 /*!< Dead-time to be inserted
                                                            by FW, only if low side
                                                            signals are enabled */
 
@@ -87,15 +87,15 @@
 #define SPEED_LOOP_FREQUENCY_HZ       1000 /*!<Execution rate of speed
                                                       regulation loop (Hz) */
 
-#define PID_SPEED_KP_DEFAULT          400/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
-#define PID_SPEED_KI_DEFAULT          50/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
+#define PID_SPEED_KP_DEFAULT          2753/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
+#define PID_SPEED_KI_DEFAULT          62/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 #define PID_SPEED_KD_DEFAULT          0/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 /* Speed PID parameter dividers */
-#define SP_KPDIV                      16
-#define SP_KIDIV                      256
+#define SP_KPDIV                      2048
+#define SP_KIDIV                      16384
 #define SP_KDDIV                      16
-#define SP_KPDIV_LOG                  LOG2(16)
-#define SP_KIDIV_LOG                  LOG2(256)
+#define SP_KPDIV_LOG                  LOG2(2048)
+#define SP_KIDIV_LOG                  LOG2(16384)
 #define SP_KDDIV_LOG                  LOG2(16)
 
 /* USER CODE BEGIN PID_SPEED_INTEGRAL_INIT_DIV */
@@ -103,7 +103,7 @@
 /* USER CODE END PID_SPEED_INTEGRAL_INIT_DIV */
 
 #define SPD_DIFFERENTIAL_TERM_ENABLING DISABLE
-#define IQMAX                          4766
+#define IQMAX                          6354
 
 /* Default settings */
 #define DEFAULT_CONTROL_MODE           STC_TORQUE_MODE /*!< STC_TORQUE_MODE or
@@ -116,18 +116,18 @@
 /**************************    FIRMWARE PROTECTIONS SECTION   *****************/
 #define OV_VOLTAGE_PROT_ENABLING        ENABLE
 #define UV_VOLTAGE_PROT_ENABLING        ENABLE
-#define OV_VOLTAGE_THRESHOLD_V          42 /*!< Over-voltage
+#define OV_VOLTAGE_THRESHOLD_V          57 /*!< Over-voltage
                                                          threshold */
-#define UD_VOLTAGE_THRESHOLD_V          10 /*!< Under-voltage
+#define UD_VOLTAGE_THRESHOLD_V          20 /*!< Under-voltage
                                                           threshold */
 #if 0
 #define ON_OVER_VOLTAGE                 TURN_OFF_PWM /*!< TURN_OFF_PWM,
                                                          TURN_ON_R_BRAKE or
                                                          TURN_ON_LOW_SIDES */
 #endif /* 0 */
-#define R_BRAKE_SWITCH_OFF_THRES_V      34
+#define R_BRAKE_SWITCH_OFF_THRES_V      46
 
-#define OV_TEMPERATURE_THRESHOLD_C      70 /*!< Celsius degrees */
+#define OV_TEMPERATURE_THRESHOLD_C      80 /*!< Celsius degrees */
 #define OV_TEMPERATURE_HYSTERESIS_C     10 /*!< Celsius degrees */
 
 #define HW_OV_CURRENT_PROT_BYPASS       DISABLE /*!< In case ON_OVER_VOLTAGE
