@@ -67,18 +67,18 @@
 #define REGULATION_EXECUTION_RATE     1    /*!< FOC execution rate in
                                                            number of PWM cycles */
 /* Gains values for torque and flux control loops */
-#define PID_TORQUE_KP_DEFAULT         3649
-#define PID_TORQUE_KI_DEFAULT         1995
+#define PID_TORQUE_KP_DEFAULT         964
+#define PID_TORQUE_KI_DEFAULT         168
 #define PID_TORQUE_KD_DEFAULT         100
-#define PID_FLUX_KP_DEFAULT           3649
-#define PID_FLUX_KI_DEFAULT           1995
+#define PID_FLUX_KP_DEFAULT           964
+#define PID_FLUX_KI_DEFAULT           168
 #define PID_FLUX_KD_DEFAULT           100
 
 /* Torque/Flux control loop gains dividers*/
-#define TF_KPDIV                      1024
+#define TF_KPDIV                      2048
 #define TF_KIDIV                      16384
 #define TF_KDDIV                      8192
-#define TF_KPDIV_LOG                  LOG2(1024)
+#define TF_KPDIV_LOG                  LOG2(2048)
 #define TF_KIDIV_LOG                  LOG2(16384)
 #define TF_KDDIV_LOG                  LOG2(8192)
 #define TFDIFFERENTIAL_TERM_ENABLING  DISABLE
@@ -87,15 +87,15 @@
 #define SPEED_LOOP_FREQUENCY_HZ       1000 /*!<Execution rate of speed
                                                       regulation loop (Hz) */
 
-#define PID_SPEED_KP_DEFAULT          400/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
-#define PID_SPEED_KI_DEFAULT          50/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
+#define PID_SPEED_KP_DEFAULT          2753/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
+#define PID_SPEED_KI_DEFAULT          62/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 #define PID_SPEED_KD_DEFAULT          0/(SPEED_UNIT/10) /* Workbench compute the gain for 01Hz unit*/
 /* Speed PID parameter dividers */
-#define SP_KPDIV                      16
-#define SP_KIDIV                      256
+#define SP_KPDIV                      2048
+#define SP_KIDIV                      16384
 #define SP_KDDIV                      16
-#define SP_KPDIV_LOG                  LOG2(16)
-#define SP_KIDIV_LOG                  LOG2(256)
+#define SP_KPDIV_LOG                  LOG2(2048)
+#define SP_KIDIV_LOG                  LOG2(16384)
 #define SP_KDDIV_LOG                  LOG2(16)
 
 /* USER CODE BEGIN PID_SPEED_INTEGRAL_INIT_DIV */
@@ -103,20 +103,20 @@
 /* USER CODE END PID_SPEED_INTEGRAL_INIT_DIV */
 
 #define SPD_DIFFERENTIAL_TERM_ENABLING DISABLE
-#define IQMAX                          4766
+#define IQMAX                          15887
 
 /* Default settings */
 #define DEFAULT_CONTROL_MODE           STC_TORQUE_MODE /*!< STC_TORQUE_MODE or
                                                         STC_SPEED_MODE */
 #define DEFAULT_TARGET_SPEED_RPM      0
 #define DEFAULT_TARGET_SPEED_UNIT      (DEFAULT_TARGET_SPEED_RPM*SPEED_UNIT/_RPM)
-#define DEFAULT_TORQUE_COMPONENT       0
+#define DEFAULT_TORQUE_COMPONENT       15887
 #define DEFAULT_FLUX_COMPONENT         0
 
 /**************************    FIRMWARE PROTECTIONS SECTION   *****************/
 #define OV_VOLTAGE_PROT_ENABLING        ENABLE
 #define UV_VOLTAGE_PROT_ENABLING        ENABLE
-#define OV_VOLTAGE_THRESHOLD_V          42 /*!< Over-voltage
+#define OV_VOLTAGE_THRESHOLD_V          60 /*!< Over-voltage
                                                          threshold */
 #define UD_VOLTAGE_THRESHOLD_V          10 /*!< Under-voltage
                                                           threshold */
@@ -125,7 +125,7 @@
                                                          TURN_ON_R_BRAKE or
                                                          TURN_ON_LOW_SIDES */
 #endif /* 0 */
-#define R_BRAKE_SWITCH_OFF_THRES_V      34
+#define R_BRAKE_SWITCH_OFF_THRES_V      48
 
 #define OV_TEMPERATURE_THRESHOLD_C      70 /*!< Celsius degrees */
 #define OV_TEMPERATURE_HYSTERESIS_C     10 /*!< Celsius degrees */
@@ -144,9 +144,15 @@
 /******************************   Temperature sensing Motor 1  **********************/
 #define  M1_TEMP_SAMPLING_TIME  LL_ADC_SAMPLING_CYCLE(1)
 /******************************   Current sensing Motor 1   **********************/
-#define ADC_SAMPLING_CYCLES (1 + SAMPLING_CYCLE_CORRECTION)
+#define ADC_SAMPLING_CYCLES (7 + SAMPLING_CYCLE_CORRECTION)
 
 /******************************   ADDITIONAL FEATURES   **********************/
+
+/*  Feed-forward parameters */
+#define FEED_FORWARD_CURRENT_REG_ENABLING ENABLE
+#define CONSTANT1_Q                    300494
+#define CONSTANT1_D                    300494
+#define CONSTANT2_QD                   75731
 
 /*** On the fly start-up ***/
 

@@ -29,8 +29,8 @@
 
 /***************** MOTOR ELECTRICAL PARAMETERS  ******************************/
 #define POLE_PAIR_NUM          15 /* Number of motor pole pairs */
-#define RS                     0.17 /* Stator resistance , ohm*/
-#define LS                     0.000311 /* Stator inductance, H
+#define RS                     0.14 /* Stator resistance , ohm*/
+#define LS                     0.000100 /* Stator inductance, H
                                                  For I-PMSM it is equal to Lq */
 
 /* When using Id = 0, NOMINAL_CURRENT is utilized to saturate the output of the
@@ -41,10 +41,10 @@
                                    *Amplifying network gain)/(MCU supply voltage/2)
 */
 
-#define NOMINAL_CURRENT         4766
+#define NOMINAL_CURRENT         15887
 #define MOTOR_MAX_SPEED_RPM     2500 /*!< Maximum rated speed  */
 #define MOTOR_VOLTAGE_CONSTANT  40.0 /*!< Volts RMS ph-ph /kRPM */
-#define ID_DEMAG                -4766 /*!< Demagnetization current */
+#define ID_DEMAG                -15887 /*!< Demagnetization current */
 
 /***************** MOTOR SENSORS PARAMETERS  ******************************/
 /* Motor sensors parameters are always generated but really meaningful only
