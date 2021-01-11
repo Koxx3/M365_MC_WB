@@ -49,8 +49,8 @@
 		<define key="dV_dT" value="0.031" />
 		<define key="T_MAX" value="70" />
 		<define key="PWBDID" value="0" />
-		<define key="STATE_OBSERVER_CORDIC" value="TRUE" />
-		<define key="SPEED_SENSOR_SELECTION" value="STATE_OBSERVER_CORDIC" />
+		<define key="HALL_SENSORS" value="TRUE" />
+		<define key="SPEED_SENSOR_SELECTION" value="HALL_SENSORS" />
 		<define key="SINGLEDRIVE" value="TRUE" />
 		<define key="DRIVES_NUMBER_SELECTION" value="SINGLEDRIVE" />
 		<define key="MAX_APPLICATION_SPEED" value="2500" />
@@ -156,8 +156,8 @@
 		<define key="DEFAULT_TORQUE_COMPONENT" value="0" />
 		<define key="DEFAULT_FLUX_COMPONENT" value="0" />
 		<define key="POSITION_CTRL_ENABLING" value="DISABLE" />
-		<define key="OV_VOLTAGE_PROT_ENABLING" value="ENABLE" />
-		<define key="UV_VOLTAGE_PROT_ENABLING" value="ENABLE" />
+		<define key="OV_VOLTAGE_PROT_ENABLING" value="DISABLE" />
+		<define key="UV_VOLTAGE_PROT_ENABLING" value="DISABLE" />
 		<define key="OV_VOLTAGE_THRESHOLD_V" value="60" />
 		<define key="UD_VOLTAGE_THRESHOLD_V" value="10" />
 		<define key="ON_OVER_VOLTAGE" value="TURN_OFF_PWM" />
@@ -188,7 +188,7 @@
 		<define key="NB_CONSECUTIVE_TESTS" value="1" />
 		<define key="SPEED_BAND_UPPER_LIMIT" value="17" />
 		<define key="SPEED_BAND_LOWER_LIMIT" value="15" />
-		<define key="BUS_VOLTAGE_READING" value="ENABLE" />
+		<define key="BUS_VOLTAGE_READING" value="DISABLE" />
 		<define key="FLUX_WEAKENING_ENABLING" value="DISABLE" />
 		<define key="FW_VOLTAGE_REF" value="985" />
 		<define key="FW_KP_GAIN" value="3000" />
@@ -266,11 +266,11 @@
 		<define key="EMERGENCY2_STOP_GPIO_PIN" value="GPIO_Pin_12" />
 		<define key="BRKIN2_GPIO_AF" value="GPIO_AF_2" />
 		<define key="HALL_TIMER_SELECTION" value="HALL_TIM3" />
-		<define key="HALL_TIMER_REMAPPING" value="NO_REMAP_TIM3" />
-		<define key="H1_GPIO_PORT" value="GPIOA" />
-		<define key="H1_GPIO_PIN" value="GPIO_Pin_6" />
-		<define key="H2_GPIO_PORT" value="GPIOA" />
-		<define key="H2_GPIO_PIN" value="GPIO_Pin_7" />
+		<define key="HALL_TIMER_REMAPPING" value="PARTIAL_REMAP_TIM3" />
+		<define key="H1_GPIO_PORT" value="GPIOB" />
+		<define key="H1_GPIO_PIN" value="GPIO_Pin_4" />
+		<define key="H2_GPIO_PORT" value="GPIOB" />
+		<define key="H2_GPIO_PIN" value="GPIO_Pin_5" />
 		<define key="H3_GPIO_PORT" value="GPIOB" />
 		<define key="H3_GPIO_PIN" value="GPIO_Pin_0" />
 		<define key="ENC_TIMER_SELECTION" value="ENC_TIM2" />
